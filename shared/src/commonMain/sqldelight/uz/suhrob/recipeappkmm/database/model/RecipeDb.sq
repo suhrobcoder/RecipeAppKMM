@@ -1,0 +1,24 @@
+CREATE TABLE recipes(
+    id INTEGER NOT NULL PRIMARY KEY,
+    title TEXT NOT NULL,
+    summary TEXT NOT NULL,
+    image TEXT,
+    vegetarian INTEGER NOT NULL,
+    readyInMinutes INTEGER,
+    instructions TEXT,
+    cuisines TEXT NOT NULL,
+    diets TEXT NOT NULL
+);
+
+insertRecipe:
+INSERT OR REPLACE INTO recipes(id, title, summary, image, vegetarian, readyInMinutes, instructions, cuisines, diets)
+VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+deleteRecipe:
+DELETE FROM recipes WHERE id = ?;
+
+getAllRecipes:
+SELECT * FROM recipes;
+
+getRecipeById:
+SELECT * FROM recipes WHERE id = ?;

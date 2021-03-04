@@ -4,6 +4,13 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     kotlin("plugin.serialization")
+    id("com.squareup.sqldelight")
+}
+
+sqldelight {
+    database("RecipeDb") {
+        packageName = "uz.suhrob.recipeappkmm.database"
+    }
 }
 
 kotlin {
@@ -19,6 +26,7 @@ kotlin {
     val ktorVersion = "1.5.2"
     val serializationVersion = "1.0.0-RC"
     val coroutinesVersion = "1.3.9-native-mt"
+    val sqldelightVersion = "1.4.4"
 
     sourceSets {
         val commonMain by getting {
@@ -27,6 +35,8 @@ kotlin {
                 implementation("io.ktor:ktor-client-core:$ktorVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
                 implementation("io.ktor:ktor-client-serialization:$ktorVersion")
+                implementation("com.squareup.sqldelight:runtime:$sqldelightVersion")
+                implementation("com.squareup.sqldelight:coroutines-extensions:1.4.2")
             }
         }
         val commonTest by getting {
@@ -40,6 +50,7 @@ kotlin {
                 implementation("com.google.android.material:material:1.2.1")
 
                 implementation("io.ktor:ktor-client-android:$ktorVersion")
+                implementation("com.squareup.sqldelight:android-driver:$sqldelightVersion")
             }
         }
         val androidTest by getting {
@@ -51,6 +62,7 @@ kotlin {
         val iosMain by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-ios:$ktorVersion")
+                implementation("com.squareup.sqldelight:native-driver:$sqldelightVersion")
             }
         }
         val iosTest by getting
@@ -63,6 +75,9 @@ android {
     defaultConfig {
         minSdkVersion(24)
         targetSdkVersion(29)
+    }
+    packagingOptions {
+        exclude("META-INF/*.kotlin_module")
     }
 }
 

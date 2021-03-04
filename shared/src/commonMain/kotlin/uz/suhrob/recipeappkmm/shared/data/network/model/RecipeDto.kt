@@ -1,4 +1,4 @@
-package uz.suhrob.recipeappkmm.shared.network.model
+package uz.suhrob.recipeappkmm.shared.data.network.model
 
 import kotlinx.serialization.Serializable
 

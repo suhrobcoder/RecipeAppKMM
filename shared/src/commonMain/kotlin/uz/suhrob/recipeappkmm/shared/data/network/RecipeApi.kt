@@ -1,14 +1,14 @@
-package uz.suhrob.recipeappkmm.shared.network
+package uz.suhrob.recipeappkmm.shared.data.network
 
 import io.ktor.client.*
 import io.ktor.client.features.*
 import io.ktor.client.features.json.*
 import io.ktor.client.features.json.serializer.*
 import io.ktor.client.request.*
-import uz.suhrob.recipeappkmm.shared.network.model.RecipeDto
-import uz.suhrob.recipeappkmm.shared.network.model.RecipeSearchItemDto
-import uz.suhrob.recipeappkmm.shared.network.response.RandomRecipeResponse
-import uz.suhrob.recipeappkmm.shared.network.response.RecipeSearchResponse
+import uz.suhrob.recipeappkmm.shared.data.network.model.RecipeDto
+import uz.suhrob.recipeappkmm.shared.data.network.model.RecipeSearchItemDto
+import uz.suhrob.recipeappkmm.shared.data.network.response.RandomRecipeResponse
+import uz.suhrob.recipeappkmm.shared.data.network.response.RecipeSearchResponse
 
 class RecipeApi {
     private val client = HttpClient {
