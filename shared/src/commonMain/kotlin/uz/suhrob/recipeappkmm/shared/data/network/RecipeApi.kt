@@ -38,6 +38,7 @@ class RecipeApi {
         maxReadyTime: Int,
         sort: String,
         sortDirection: String,
+        offset: Int,
     ): RecipeSearchResponse {
         return client.get {
             url("${BASE_URL}/recipes/complexSearch")
@@ -48,17 +49,20 @@ class RecipeApi {
             parameter("maxReadyTime", maxReadyTime)
             parameter("sort", sort)
             parameter("sortDirection", sortDirection)
+            parameter("offset", offset)
         }
     }
 
     suspend fun getRandomRecipes(
         number: Int,
         tags: List<String> = listOf(),
+        offset: Int,
     ): RandomRecipeResponse {
         return client.get {
             url("${BASE_URL}/recipes/random")
             parameter("number", number)
             parameter("tags", tags.joinToString(separator = ", "))
+            parameter("offset", offset)
         }
     }
 
