@@ -37,6 +37,7 @@ kotlin {
                 implementation("io.ktor:ktor-client-serialization:$ktorVersion")
                 implementation("com.squareup.sqldelight:runtime:$sqldelightVersion")
                 implementation("com.squareup.sqldelight:coroutines-extensions:1.4.2")
+                implementation("com.russhwolf:multiplatform-settings:0.7.3")
             }
         }
         val commonTest by getting {
