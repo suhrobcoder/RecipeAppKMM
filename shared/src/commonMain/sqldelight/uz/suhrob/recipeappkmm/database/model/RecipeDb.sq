@@ -10,6 +10,28 @@ CREATE TABLE recipes(
     diets TEXT NOT NULL
 );
 
+CREATE TABLE instructionStep(
+    id INTEGER NOT NULL PRIMARY KEY,
+    recipeId INTEGER NOT NULL,
+    number INTEGER NOT NULL,
+    step TEXT NOT NULL
+);
+
+CREATE TABLE equipment(
+    id INTEGER NOT NULL PRIMARY KEY,
+    instructionStepId INTEGER NOT NULL,
+    name TEXT NOT NULL,
+    image TEXT
+);
+
+CREATE TABLE ingredient(
+    id INTEGER NOT NULL PRIMARY KEY,
+    instructionStepId INTEGER NOT NULL,
+    name TEXT NOT NULL,
+    image TEXT
+);
+
+
 insertRecipe:
 INSERT OR REPLACE INTO recipes(id, title, summary, image, vegetarian, readyInMinutes, instructions, cuisines, diets)
 VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);
@@ -22,3 +44,35 @@ SELECT * FROM recipes;
 
 getRecipeById:
 SELECT * FROM recipes WHERE id = ?;
+
+
+insertInstructionStep:
+INSERT INTO instructionStep(id, recipeId, number, step)
+VALUES (?, ?, ?, ?);
+
+getInstructionStepsByRecipeId:
+SELECT * FROM instructionStep WHERE recipeId = ?;
+
+deleteInstructionsByRecipeId:
+DELETE FROM instructionStep WHERE recipeId = ?;
+
+
+insertEquipment:
+INSERT INTO equipment(id, instructionStepId, name, image)
+VALUES(?, ?, ?, ?);
+
+getEquipmentsByStepId:
+SELECT * FROM equipment WHERE instructionStepId = ?;
+
+deleteEquipmentsByStepId:
+DELETE FROM equipment WHERE instructionStepId = ?;
+
+insertIngredient:
+INSERT INTO ingredient(id, instructionStepId, name, image)
+VALUES(?, ?, ?, ?);
+
+getIngredientsByStepId:
+SELECT * FROM ingredient WHERE instructionStepId = ?;
+
+deleteIngredientByStepId:
+DELETE FROM ingredient WHERE instructionStepId = ?;
