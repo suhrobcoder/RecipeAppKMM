@@ -10,4 +10,5 @@ data class RecipeEntity(
     val instructions: String?,
     val cuisines: String,
     val diets: String,
+    var instructionSteps: List<InstructionStepEntity>,
 )
