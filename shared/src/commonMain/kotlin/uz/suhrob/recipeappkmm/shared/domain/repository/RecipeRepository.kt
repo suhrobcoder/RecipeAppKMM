@@ -14,6 +14,7 @@ interface RecipeRepository {
         maxReadyTime: Int,
         sort: String,
         sortDirection: String,
+        number: Int,
         offset: Int,
     ): List<RecipeSearchItemDto>
 

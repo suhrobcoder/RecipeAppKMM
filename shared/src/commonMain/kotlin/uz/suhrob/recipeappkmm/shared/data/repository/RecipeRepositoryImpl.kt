@@ -21,6 +21,7 @@ class RecipeRepositoryImpl(
         maxReadyTime: Int,
         sort: String,
         sortDirection: String,
+        number: Int,
         offset: Int,
     ): List<RecipeSearchItemDto> {
         val res = recipeApi.searchRecipes(
@@ -31,6 +32,7 @@ class RecipeRepositoryImpl(
             maxReadyTime,
             sort,
             sortDirection,
+            number,
             offset,
         )
         if (res.offset >= res.totalResults) {

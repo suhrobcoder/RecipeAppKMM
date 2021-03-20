@@ -38,6 +38,7 @@ class RecipeApi {
         maxReadyTime: Int,
         sort: String,
         sortDirection: String,
+        number: Int,
         offset: Int,
     ): RecipeSearchResponse {
         return client.get {
@@ -49,6 +50,7 @@ class RecipeApi {
             parameter("maxReadyTime", maxReadyTime)
             parameter("sort", sort)
             parameter("sortDirection", sortDirection)
+            parameter("number", number)
             parameter("offset", offset)
         }
     }

@@ -7,7 +7,7 @@ data class RecipeDto(
     val id: Int,
     val title: String,
     val summary: String,
-    val image: String?,
+    val image: String? = null,
     val vegetarian: Boolean,
     val readyInMinutes: Int?,
     val instructions: String?,

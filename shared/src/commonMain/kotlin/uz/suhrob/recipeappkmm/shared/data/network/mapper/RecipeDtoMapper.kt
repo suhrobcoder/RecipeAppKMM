@@ -17,7 +17,7 @@ class RecipeDtoMapper(
             instructions = model.instructions,
             image = model.image,
             vegetarian = model.vegetarian,
-            instructionSteps = instructionStepMapper.toDomainList(model.analyzedInstructions[0].steps),
+            instructionSteps = instructionStepMapper.toDomainList(if (model.analyzedInstructions.isNotEmpty()) model.analyzedInstructions[0].steps else listOf()),
         )
     }
 
