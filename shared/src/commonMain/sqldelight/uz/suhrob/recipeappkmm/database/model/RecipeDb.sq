@@ -18,14 +18,14 @@ CREATE TABLE instructionStep(
 );
 
 CREATE TABLE equipment(
-    id INTEGER NOT NULL PRIMARY KEY,
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     instructionStepId INTEGER NOT NULL,
     name TEXT NOT NULL,
     image TEXT
 );
 
 CREATE TABLE ingredient(
-    id INTEGER NOT NULL PRIMARY KEY,
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     instructionStepId INTEGER NOT NULL,
     name TEXT NOT NULL,
     image TEXT
@@ -47,8 +47,8 @@ SELECT * FROM recipes WHERE id = ?;
 
 
 insertInstructionStep:
-INSERT INTO instructionStep(id, recipeId, number, step)
-VALUES (?, ?, ?, ?);
+INSERT INTO instructionStep(recipeId, number, step)
+VALUES (?, ?, ?);
 
 getInstructionStepsByRecipeId:
 SELECT * FROM instructionStep WHERE recipeId = ?;
@@ -58,8 +58,8 @@ DELETE FROM instructionStep WHERE recipeId = ?;
 
 
 insertEquipment:
-INSERT INTO equipment(id, instructionStepId, name, image)
-VALUES(?, ?, ?, ?);
+INSERT INTO equipment(instructionStepId, name, image)
+VALUES(?, ?, ?);
 
 getEquipmentsByStepId:
 SELECT * FROM equipment WHERE instructionStepId = ?;
@@ -68,8 +68,8 @@ deleteEquipmentsByStepId:
 DELETE FROM equipment WHERE instructionStepId = ?;
 
 insertIngredient:
-INSERT INTO ingredient(id, instructionStepId, name, image)
-VALUES(?, ?, ?, ?);
+INSERT INTO ingredient(instructionStepId, name, image)
+VALUES(?, ?, ?);
 
 getIngredientsByStepId:
 SELECT * FROM ingredient WHERE instructionStepId = ?;

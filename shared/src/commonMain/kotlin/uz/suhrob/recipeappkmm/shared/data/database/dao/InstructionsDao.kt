@@ -30,7 +30,6 @@ class InstructionsDao(database: RecipeDb) {
         for (instruction in instructions) {
             val id = recipeId * 100 + instruction.number
             dbQueries.insertInstructionStep(
-                id = id,
                 recipeId = recipeId,
                 number = instruction.number,
                 step = instruction.step
@@ -61,13 +60,9 @@ class InstructionsDao(database: RecipeDb) {
     private fun insertEquipments(equipments: List<EquipmentEntity>, stepId: Long) {
         for (equipment in equipments) {
             with(equipment) {
-                dbQueries.insertEquipment(id, stepId, name, image)
+                dbQueries.insertEquipment(stepId, name, image)
             }
         }
-    }
-
-    private fun deleteEquipmentsByStepId(stepId: Long) {
-        dbQueries.deleteEquipmentsByStepId(stepId)
     }
 
     private fun getEquipmentsByStepId(stepId: Long): List<EquipmentEntity> {
@@ -77,16 +72,12 @@ class InstructionsDao(database: RecipeDb) {
     private fun insertIngredients(ingredients: List<IngredientEntity>, stepId: Long) {
         for (ingredient in ingredients) {
             with(ingredient) {
-                dbQueries.insertIngredient(id, stepId, name, image)
+                dbQueries.insertIngredient(stepId, name, image)
             }
         }
     }
 
     private fun getIngredientByStepId(stepId: Long): List<IngredientEntity> {
         return dbQueries.getIngredientsByStepId(stepId, ingredientMapper).executeAsList()
-    }
-
-    private fun deleteIngredientsByStepId(stepId: Long) {
-        dbQueries.deleteIngredientByStepId(stepId)
     }
 }

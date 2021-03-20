@@ -4,7 +4,8 @@ import uz.suhrob.recipeappkmm.shared.data.database.model.RecipeEntity
 import uz.suhrob.recipeappkmm.shared.domain.model.Recipe
 import uz.suhrob.recipeappkmm.shared.domain.util.BaseMapper
 
-class RecipeEntityMapper : BaseMapper<RecipeEntity, Recipe> {
+class RecipeEntityMapper(private val instructionMapper: InstructionStepEntityMapper) :
+    BaseMapper<RecipeEntity, Recipe> {
     override fun toDomain(model: RecipeEntity): Recipe {
         return Recipe(
             id = model.id.toInt(),
@@ -16,7 +17,7 @@ class RecipeEntityMapper : BaseMapper<RecipeEntity, Recipe> {
             image = model.image,
             vegetarian = model.vegetarian == 1L,
             cuisines = model.cuisines.split("|"),
-            instructionSteps = listOf(),
+            instructionSteps = instructionMapper.toDomainList(model.instructionSteps),
         )
     }
 
@@ -31,6 +32,7 @@ class RecipeEntityMapper : BaseMapper<RecipeEntity, Recipe> {
             image = model.image,
             vegetarian = if (model.vegetarian) 1 else 0,
             cuisines = model.cuisines.joinToString(separator = "|"),
+            instructionSteps = instructionMapper.fromDomainList(model.instructionSteps),
         )
     }
 }
