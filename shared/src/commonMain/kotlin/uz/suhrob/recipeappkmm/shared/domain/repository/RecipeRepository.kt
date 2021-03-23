@@ -10,6 +10,8 @@ interface RecipeRepository {
         query: String,
         cuisine: List<String>,
         diet: String,
+        intelorances: String,
+        type: String,
         includeIngredients: List<String>,
         maxReadyTime: Int,
         sort: String,
