@@ -34,6 +34,8 @@ class RecipeApi {
         query: String,
         cuisine: List<String>,
         diet: String,
+        intelorances: String,
+        type: String,
         includeIngredients: List<String>,
         maxReadyTime: Int,
         sort: String,
@@ -46,6 +48,8 @@ class RecipeApi {
             parameter("query", query)
             parameter("cuisine", cuisine.joinToString(separator = ", "))
             parameter("diet", diet)
+            parameter("intelorances", intelorances)
+            parameter("type", type)
             parameter("includeIngredients", includeIngredients.joinToString(separator = ", "))
             parameter("maxReadyTime", maxReadyTime)
             parameter("sort", sort)
