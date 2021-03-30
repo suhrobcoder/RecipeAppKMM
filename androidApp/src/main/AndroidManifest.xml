@@ -8,6 +8,7 @@
         android:allowBackup="false"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:label="RecipeApp"
         android:name=".presentation.BaseApplication">
         <activity android:name=".presentation.MainActivity">
             <intent-filter>

@@ -33,7 +33,7 @@ dependencies {
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0-alpha01")
 
     val accompanist = "0.7.0"
-    implementation("dev.chrisbanes.accompanist:accompanist-insets:$accompanist")
+    implementation("com.google.accompanist:accompanist-insets:$accompanist")
     implementation("com.google.accompanist:accompanist-coil:$accompanist")
 }
 
