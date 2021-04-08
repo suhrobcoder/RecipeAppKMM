@@ -5,20 +5,20 @@ plugins {
     id("dagger.hilt.android.plugin")
 }
 
-val composeVersion = "1.0.0-beta03"
+val composeVersion = "1.0.0-beta04"
 
 dependencies {
     implementation(project(":shared"))
     implementation("com.google.android.material:material:1.2.1")
     implementation("androidx.appcompat:appcompat:1.2.0")
     implementation("androidx.constraintlayout:constraintlayout:2.0.2")
-    implementation("androidx.activity:activity-compose:1.3.0-alpha05")
+    implementation("androidx.activity:activity-compose:1.3.0-alpha06")
 
     implementation("androidx.compose.ui:ui:$composeVersion")
     implementation("androidx.compose.material:material:$composeVersion")
     implementation("androidx.compose.ui:ui-tooling:$composeVersion")
 
-    val navComposeVersion = "1.0.0-alpha09"
+    val navComposeVersion = "1.0.0-alpha10"
     implementation("androidx.navigation:navigation-compose:$navComposeVersion")
 
     val lifecycleVersion = "2.2.0"
@@ -35,6 +35,7 @@ dependencies {
     val accompanist = "0.7.0"
     implementation("com.google.accompanist:accompanist-insets:$accompanist")
     implementation("com.google.accompanist:accompanist-coil:$accompanist")
+    implementation("com.google.accompanist:accompanist-flowlayout:$accompanist")
 }
 
 android {

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="onboarding_body">To offer you the best recipes we need to know your some information</string>
+    <string name="previous">Previous</string>
+    <string name="next_step">Next step</string>
+    <string name="skip">Skip</string>
+    <string name="get_started">Get started</string>
+</resources>
