@@ -5,4 +5,8 @@
     <string name="next_step">Next step</string>
     <string name="skip">Skip</string>
     <string name="get_started">Get started</string>
+    <string name="recipes">Recipes</string>
+    <string name="search">Search</string>
+    <string name="saved">Saved</string>
+    <string name="settings">Settings</string>
 </resources>

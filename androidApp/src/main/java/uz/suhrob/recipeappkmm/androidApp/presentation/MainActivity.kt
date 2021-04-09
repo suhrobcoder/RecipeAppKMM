@@ -11,9 +11,11 @@ import androidx.compose.material.Text
 import androidx.core.view.WindowCompat
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.insets.ProvideWindowInsets
 import dagger.hilt.android.AndroidEntryPoint
+import uz.suhrob.recipeappkmm.androidApp.presentation.navigation.HomeBottomNav
 import uz.suhrob.recipeappkmm.androidApp.presentation.navigation.Navigation
 import uz.suhrob.recipeappkmm.androidApp.presentation.onboarding.OnboardingScreen
 import uz.suhrob.recipeappkmm.androidApp.presentation.onboarding.OnboardingViewModel
@@ -34,12 +36,21 @@ class MainActivity : AppCompatActivity() {
                 ProvideWindowInsets {
                     Surface {
                         val navController = rememberNavController()
-                        NavHost(navController = navController, startDestination = Navigation.Onboarding.route) {
+                        NavHost(
+                            navController = navController,
+                            startDestination = Navigation.Onboarding.route
+                        ) {
                             composable(Navigation.Onboarding.route) {
                                 OnboardingScreen(viewModel, navController)
                             }
                             composable(Navigation.Home.route) {
                                 Text("Home Screen")
+                            }
+                            navigation(
+                                startDestination = Navigation.Home.route,
+                                route = HomeBottomNav.Recipes.subRoute
+                            ) {
+
                             }
                         }
                     }
