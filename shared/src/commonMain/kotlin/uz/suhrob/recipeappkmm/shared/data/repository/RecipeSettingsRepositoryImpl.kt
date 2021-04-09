@@ -22,9 +22,18 @@ class RecipeSettingsRepositoryImpl(
         return settings.getString(KEY_DIETS).toList()
     }
 
+    override fun isFirstRun(): Boolean {
+        val isFirst = settings.getBoolean(KEY_FIRST_RUN, true)
+        if (isFirst) {
+            settings.putBoolean(KEY_FIRST_RUN, false)
+        }
+        return isFirst
+    }
+
     companion object {
         private const val KEY_DIETS = "diets"
         private const val KEY_CUISINES = "cuisines"
+        private const val KEY_FIRST_RUN = "first_run"
     }
 
     private fun List<String>.listToString(): String {

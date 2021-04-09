@@ -18,12 +18,16 @@ import uz.suhrob.recipeappkmm.androidApp.presentation.navigation.Navigation
 import uz.suhrob.recipeappkmm.androidApp.presentation.onboarding.OnboardingScreen
 import uz.suhrob.recipeappkmm.androidApp.presentation.onboarding.OnboardingViewModel
 import uz.suhrob.recipeappkmm.androidApp.presentation.ui.RecipeAppTheme
+import uz.suhrob.recipeappkmm.shared.domain.interactor.IsFirstRun
+import javax.inject.Inject
 
 @ExperimentalAnimationApi
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private val viewModel by viewModels<OnboardingViewModel>()
+    @Inject
+    lateinit var isFirstRun: IsFirstRun
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                         val navController = rememberNavController()
                         NavHost(
                             navController = navController,
-                            startDestination = Navigation.Onboarding.route
+                            startDestination = if (isFirstRun()) Navigation.Onboarding.route else Navigation.Home.route
                         ) {
                             composable(Navigation.Onboarding.route) {
                                 OnboardingScreen(viewModel, navController)

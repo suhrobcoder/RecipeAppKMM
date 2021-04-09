@@ -8,4 +8,6 @@ interface RecipeSettingsRepository {
     fun getDiets(): List<String>
 
     fun getCuisines(): List<String>
+
+    fun isFirstRun(): Boolean
 }

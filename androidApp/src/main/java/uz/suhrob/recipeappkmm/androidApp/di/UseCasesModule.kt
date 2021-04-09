@@ -89,4 +89,10 @@ object UseCasesModule {
     fun provideSetDiets(
         settingsRepository: RecipeSettingsRepository,
     ) = SetDiets(settingsRepository)
+
+    @Provides
+    @Singleton
+    fun provideIsFirstRun(
+        settingsRepository: RecipeSettingsRepository
+    ) = IsFirstRun(settingsRepository)
 }
