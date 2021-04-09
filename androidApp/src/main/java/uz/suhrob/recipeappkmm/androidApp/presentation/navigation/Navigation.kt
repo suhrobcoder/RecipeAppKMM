@@ -12,10 +12,17 @@ sealed class Navigation(val route: String) {
 sealed class HomeBottomNav(
     @StringRes val title: Int,
     @DrawableRes val icon: Int,
-    val subRoute: String,
+    val route: String,
 ) {
     object Recipes : HomeBottomNav(R.string.recipes, R.drawable.ic_recipe, "recipes")
     object Search : HomeBottomNav(R.string.search, R.drawable.ic_search, "search")
     object Saved : HomeBottomNav(R.string.saved, R.drawable.ic_bookmark, "saved")
     object Settings : HomeBottomNav(R.string.settings, R.drawable.ic_settings, "settings")
 }
+
+val homeBottomNavItems = listOf(
+    HomeBottomNav.Recipes,
+    HomeBottomNav.Search,
+    HomeBottomNav.Saved,
+    HomeBottomNav.Settings,
+)
