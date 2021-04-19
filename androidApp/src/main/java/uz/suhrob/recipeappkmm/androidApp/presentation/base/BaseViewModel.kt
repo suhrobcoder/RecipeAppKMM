@@ -44,5 +44,5 @@ abstract class BaseViewModel<Event : IEvent, State : IState, Effect : IEffect>(i
         }
     }
 
-    abstract fun handleEvent(event: Event)
+    abstract suspend fun handleEvent(event: Event)
 }

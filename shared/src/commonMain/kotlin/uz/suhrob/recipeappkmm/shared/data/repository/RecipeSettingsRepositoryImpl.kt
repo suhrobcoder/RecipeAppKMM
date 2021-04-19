@@ -41,6 +41,6 @@ class RecipeSettingsRepositoryImpl(
     }
 
     private fun String.toList(): List<String> {
-        return this.split("|")
+        return if (this.isEmpty()) listOf() else this.split("|")
     }
 }

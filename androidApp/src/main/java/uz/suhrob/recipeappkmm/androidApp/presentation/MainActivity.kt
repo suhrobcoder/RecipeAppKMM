@@ -6,10 +6,14 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.core.view.WindowCompat
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.insets.ProvideWindowInsets
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,6 +25,7 @@ import uz.suhrob.recipeappkmm.androidApp.presentation.ui.RecipeAppTheme
 import uz.suhrob.recipeappkmm.shared.domain.interactor.IsFirstRun
 import javax.inject.Inject
 
+@ExperimentalFoundationApi
 @ExperimentalAnimationApi
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -47,6 +52,13 @@ class MainActivity : AppCompatActivity() {
                             }
                             composable(Navigation.Home.route) {
                                 HomeScreen(navController)
+                            }
+                            composable(
+                                Navigation.Details.route + "/{id}",
+                                arguments = listOf(navArgument("id") { type = NavType.IntType })
+                            ) {
+                                val id = it.arguments?.getInt("id") ?: -1
+                                Text("Details Screen id = $id")
                             }
                         }
                     }

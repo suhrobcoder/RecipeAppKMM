@@ -17,6 +17,7 @@ dependencies {
     implementation("androidx.compose.ui:ui:$composeVersion")
     implementation("androidx.compose.material:material:$composeVersion")
     implementation("androidx.compose.ui:ui-tooling:$composeVersion")
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.0-alpha03")
 
     val navComposeVersion = "1.0.0-alpha10"
     implementation("androidx.navigation:navigation-compose:$navComposeVersion")
@@ -32,7 +33,7 @@ dependencies {
     implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0-alpha01")
 
-    val accompanist = "0.7.0"
+    val accompanist = "0.7.1"
     implementation("com.google.accompanist:accompanist-insets:$accompanist")
     implementation("com.google.accompanist:accompanist-coil:$accompanist")
     implementation("com.google.accompanist:accompanist-flowlayout:$accompanist")

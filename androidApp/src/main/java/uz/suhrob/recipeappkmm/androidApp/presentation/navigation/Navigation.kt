@@ -7,6 +7,7 @@ import uz.suhrob.recipeappkmm.androidApp.R
 sealed class Navigation(val route: String) {
     object Onboarding : Navigation("onboarding")
     object Home : Navigation("home")
+    object Details : Navigation("details")
 }
 
 sealed class HomeBottomNav(

@@ -26,7 +26,7 @@ class OnboardingViewModel @Inject constructor(
     private val selectedDiets = ArrayList<String>()
     private val selectedCuisines = ArrayList<String>()
 
-    override fun handleEvent(event: OnboardingEvent) {
+    override suspend fun handleEvent(event: OnboardingEvent) {
         when (event) {
             is OnboardingEvent.NextStep -> nextStep()
             is OnboardingEvent.PreviousStep -> prevStep()

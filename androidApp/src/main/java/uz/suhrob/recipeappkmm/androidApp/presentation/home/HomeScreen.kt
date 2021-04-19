@@ -1,5 +1,6 @@
 package uz.suhrob.recipeappkmm.androidApp.presentation.home
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -7,13 +8,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
+import androidx.hilt.navigation.compose.hiltNavGraphViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.*
 import com.google.accompanist.insets.navigationBarsPadding
+import uz.suhrob.recipeappkmm.androidApp.presentation.home.recipes.RecipesScreen
+import uz.suhrob.recipeappkmm.androidApp.presentation.home.recipes.RecipesViewModel
 import uz.suhrob.recipeappkmm.androidApp.presentation.navigation.HomeBottomNav
 import uz.suhrob.recipeappkmm.androidApp.presentation.navigation.homeBottomNavItems
 import uz.suhrob.recipeappkmm.androidApp.presentation.ui.Gray400
 
+@ExperimentalFoundationApi
 @Composable
 fun HomeScreen(mainNavController: NavController) {
     val bottomNavController = rememberNavController()
@@ -51,7 +56,8 @@ fun HomeScreen(mainNavController: NavController) {
             startDestination = HomeBottomNav.Recipes.route
         ) {
             composable(HomeBottomNav.Recipes.route) {
-                Text("Recipes")
+                val viewModel = hiltNavGraphViewModel<RecipesViewModel>()
+                RecipesScreen(mainNavController, viewModel)
             }
             composable(HomeBottomNav.Search.route) {
                 Text("Search")

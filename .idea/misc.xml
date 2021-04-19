@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidProjects/RecipeApp/androidApp/src/main/res/drawable/ic_bookmark.xml" value="0.18425925925925926" />
+        <entry key="..\:/AndroidProjects/RecipeApp/androidApp/src/main/res/drawable/ic_bookmark_filled.xml" value="0.18" />
+        <entry key="..\:/AndroidProjects/RecipeApp/androidApp/src/main/res/drawable/ic_chef_hat.xml" value="0.2169230769230769" />
+        <entry key="..\:/AndroidProjects/RecipeApp/androidApp/src/main/res/drawable/ic_clock.xml" value="0.2169230769230769" />
         <entry key="..\:/AndroidProjects/RecipeApp/androidApp/src/main/res/drawable/ic_recipe.xml" value="0.18425925925925926" />
       </map>
     </option>
